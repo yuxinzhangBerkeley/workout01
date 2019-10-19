@@ -14,6 +14,7 @@ df =read_csv("./data/ibtracs-2010-2015.csv",
              na = c("-999.","-1.0","0.0"))#Specify strings of missing values with "-999.", "-1.0", and "0.0".
 df$Basin = as.factor(df$Basin)
 df$ISO_time = as.character(df$ISO_time)
+
 str(df)
 sink(file = './output/data-summary.txt')
 summary(df)
@@ -57,6 +58,8 @@ map_ep_na_by_year=ggplot() +
              aes(x = Longitude, y = Latitude, color = Basin),
              cex = 0.2, pch = 10) +
   facet_wrap(~ Season, ncol=3)
+map_ep_na_by_year
+
 ggsave("./images/map-ep-na-storms-by-year.pdf")
 ggsave("./images/map-ep-na-storms-by-year.png")
 
@@ -77,5 +80,14 @@ map_ep_na_by_month=ggplot() +
 map_ep_na_by_month
 ggsave("./images/map-ep-na-storms-by-month.pdf")
 ggsave("./images/map-ep-na-storms-by-month.png")
+
+
+
+
+
+
+
+
+
 
 
